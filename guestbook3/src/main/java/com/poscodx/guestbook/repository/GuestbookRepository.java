@@ -67,7 +67,7 @@ public class GuestbookRepository {
         return result;
     }
 
-    public int delete(Long no, String password) {
+    public int deleteByNoAndPassword(Long no, String password) {
         int result = 0;
 
         try (Connection conn = getConnection();
