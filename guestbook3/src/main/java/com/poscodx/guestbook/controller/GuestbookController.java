@@ -1,8 +1,6 @@
 package com.poscodx.guestbook.controller;
 
-import com.poscodx.guestbook.repository.GuestbookRepositoryWithJdbcContext;
-import com.poscodx.guestbook.repository.GuestbookRepositoryWithJdbcTemplate;
-import com.poscodx.guestbook.repository.GuestbookRepositoryWithRawJdbc;
+import com.poscodx.guestbook.service.GuestbookService;
 import com.poscodx.guestbook.vo.GuestbookVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,18 +14,13 @@ import java.util.List;
 
 @Controller
 public class GuestbookController {
-    @Autowired
-    private GuestbookRepositoryWithRawJdbc guestbookRepository1; // 실무 사용 가능
 
     @Autowired
-    private GuestbookRepositoryWithJdbcContext guestbookRepository2;
-
-    @Autowired
-    private GuestbookRepositoryWithJdbcTemplate guestbookRepository3; // 실무 사용 가능
+    private GuestbookService guestbookService;
 
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String index(Model model) {
-        List<GuestbookVo> list = guestbookRepository3.findAll();
+        List<GuestbookVo> list = guestbookService.getContentsList();
         model.addAttribute("list", list);
 
         return "index";
@@ -35,7 +28,7 @@ public class GuestbookController {
 
     @RequestMapping(value = "/add")
     public String add(GuestbookVo vo) {
-        guestbookRepository3.insert(vo);
+        guestbookService.addContents(vo);
         return "redirect:/";
     }
 
@@ -47,7 +40,7 @@ public class GuestbookController {
 
     @RequestMapping(value="/delete/{no}", method=RequestMethod.POST)
     public String delete(@PathVariable("no") Long no, @RequestParam(value="password", required=true, defaultValue="") String password) {
-        guestbookRepository3.deleteByNoAndPassword(no, password);
+        guestbookService.deleteContents(no, password);
         return "redirect:/";
     }
 }

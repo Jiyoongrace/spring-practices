@@ -30,9 +30,14 @@
         <constructor-arg index="0" ref="dataSource" />
     </bean>
 
+    <!-- Transaction Manager -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <constructor-arg index="0" ref="dataSource" />
+    </bean>
+
     <context:annotation-config/>
 
-    <context:component-scan base-package="com.poscodx.guestbook.repository">
+    <context:component-scan base-package="com.poscodx.guestbook.repository, com.poscodx.guestbook.service">
         <context:include-filter type="annotation"
                                 expression="org.springframework.stereotype.Repository"/>
         <context:include-filter type="annotation"
@@ -40,6 +45,5 @@
         <context:include-filter type="annotation"
                                 expression="org.springframework.stereotype.Component"/>
     </context:component-scan>
-
 
 </beans>
