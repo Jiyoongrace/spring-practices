@@ -11,6 +11,7 @@
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <mvc:annotation-driven />
 
     <!-- View Resolver 설정 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -30,7 +31,10 @@
         <property name="defaultEncoding" value="utf-8" />
     </bean>
 
-<context:annotation-config />
+    <!-- mvc url-resource mapping -->
+    <mvc:resources mapping="/images/**" location="file:/fileupload-files/"></mvc:resources>
+
+    <context:annotation-config />
     <context:component-scan base-package="fileupload.controller" />
 
 </beans>
