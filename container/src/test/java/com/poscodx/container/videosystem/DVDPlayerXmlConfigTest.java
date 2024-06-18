@@ -31,8 +31,31 @@ public class DVDPlayerXmlConfigTest {
     DigitalVideoDisc dvd4;
 
     @Autowired
-    @Qualifier("avengersUltron")
+    @Qualifier("avengersAgeOfUltron")
     DigitalVideoDisc dvd5;
+
+    @Autowired
+    @Qualifier("avengersCaptainAmerica")
+    DigitalVideoDisc dvd6;
+
+    @Autowired
+    @Qualifier("avengersDirectorEdition")
+    DigitalVideoDisc dvd7;
+
+    @Autowired
+    DVDPack dvdPack;
+
+    @Autowired
+    @Qualifier("avengersExtensionEdition1")
+    DigitalVideoDisc dvd8;
+
+    @Autowired
+    @Qualifier("avengersExtensionEdition2")
+    DigitalVideoDisc dvd9;
+
+    @Autowired
+    @Qualifier("avengersExtensionEdition3")
+    DigitalVideoDisc dvd10;
 
     @Disabled
     @Test
@@ -58,5 +81,35 @@ public class DVDPlayerXmlConfigTest {
     @Test
     public void testDVD5() {
         assertNotNull(dvd5);
+    }
+
+    @Test
+    public void testDVD6() {
+        assertNotNull(dvd6);
+    }
+
+    @Test
+    public void testDVD7() {
+        assertNotNull(dvd7);
+    }
+
+    @Test
+    public void testDVDPack() {
+        assertNotNull(dvdPack);
+    }
+
+    @Test
+    public void testDVD8() {
+        assertNotNull(dvd8);
+    }
+
+    @Test
+    public void testDVD9() {
+        assertNotNull(dvd9);
+    }
+
+    @Test
+    public void testDVD10() {
+        assertNotNull(dvd10);
     }
 }

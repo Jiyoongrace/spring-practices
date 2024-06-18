@@ -1,12 +1,28 @@
 package com.poscodx.container.videosystem;
 
+import lombok.Setter;
+
+import java.util.List;
+
+@Setter
 public class BlankDisc implements DigitalVideoDisc {
     private String title;
     private String studio;
+    private List<String> actors;
+
+    public BlankDisc() {
+
+    }
 
     public BlankDisc(String title, String studio) {
         this.title = title;
         this.studio = studio;
+    }
+
+    public BlankDisc(String title, String studio, List<String> actors) {
+        this.title = title;
+        this.studio = studio;
+        this.actors = actors;
     }
 
     @Override
