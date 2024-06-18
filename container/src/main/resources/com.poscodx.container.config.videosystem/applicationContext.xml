@@ -2,7 +2,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:c="http://www.springframework.org/schema/c"
        xmlns:p="http://www.springframework.org/schema/p"
@@ -14,45 +13,45 @@
         http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
-        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/tool http://www.springframework.org/schema/tool/spring-tool.xsd">
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
-    <!-- 01. 빈 설정: 초간단 -->
+    <!-- 01. 빈설정: 초간단 -->
     <bean class="com.poscodx.container.videosystem.Avengers" />
 
-    <!-- 02. 빈 설정: id 부여하기 -->
+    <!-- 02. 빈설정: id 부여하기 -->
     <bean id="ironMan" class="com.poscodx.container.videosystem.IronMan" />
 
-    <!-- 03. 빈 설정: 생성자 리터럴 사용1 -->
+    <!-- 03. 빈설정: 생성자: 리터럴 사용1 -->
     <bean id="avengersInfinityWar" class="com.poscodx.container.videosystem.BlankDisc">
-        <constructor-arg name="title" value="Avengers Infinity War" />
-        <constructor-arg name="studio" value="Marvel" />
+        <constructor-arg name="title" value="Avengers Infinity War"/>
+        <constructor-arg name="studio" value="Marvel"/>
     </bean>
 
-    <!-- 04. 빈 설정: 생성자 리터럴 사용2 -->
+    <!-- 04. 빈설정: 생성자: 리터럴 사용2 -->
     <bean
             id="avengersEndgame"
             class="com.poscodx.container.videosystem.BlankDisc"
             c:title="Avengers Endgame"
             c:studio="Marvel" />
 
-    <!-- 05. 빈 설정: 생성자 리터럴 사용3 -->
+    <!-- 05. 빈설정: 생성자: 리터럴 사용3 -->
     <bean
             id="avengersAgeOfUltron"
             class="com.poscodx.container.videosystem.BlankDisc"
             c:_1="Marvel"
             c:_0="Avengers Age of Ultron" />
 
-    <!-- 06. 빈 설정: 생성자: null argument -->
+    <!-- 06. 빈설정: 생성자: null argument -->
     <bean id="avengersCaptainAmerica" class="com.poscodx.container.videosystem.BlankDisc">
-        <constructor-arg name="title" value="Avengers Captain America" />
-        <constructor-arg name="studio" value="Marvel" />
+        <constructor-arg name="title" value="Avengers Captain America"/>
+        <constructor-arg name="studio" value="Marvel"/>
         <constructor-arg name="actors"><null/></constructor-arg>
     </bean>
 
-    <!-- 07. 빈 설정: 생성자: collection argument -->
+    <!-- 07. 빈설정: 생성자: collection argument -->
     <bean id="avengersDirectorEdition" class="com.poscodx.container.videosystem.BlankDisc">
-        <constructor-arg name="title" value="Avengers Director Edition" />
-        <constructor-arg name="studio" value="Marvel" />
+        <constructor-arg name="title" value="Avengers Director Edition"/>
+        <constructor-arg name="studio" value="Marvel"/>
         <constructor-arg name="actors">
             <list>
                 <value>Robert Downey Jr.</value>
@@ -61,7 +60,7 @@
         </constructor-arg>
     </bean>
 
-    <!-- 08. 빈 설정: 생성자: wiring collection -->
+    <!-- 08. 빈설정: 생성자: wiring collection -->
     <bean
             id="avengersTriplePack"
             class="com.poscodx.container.videosystem.DVDPack"
@@ -75,17 +74,17 @@
         </constructor-arg>
     </bean>
 
-    <!-- 09. 빈 설정: 프로퍼티 사용1 -->
-    <bean id="avengersExtensionEdition1" class="com.poscodx.container.videosystem.BlankDisc">
-        <property name="title" value="avengers Extension Edition1" />
-        <property name="studio" value="Marvel" />
+    <!-- 09. 빈설정: 프로퍼티 사용1 -->
+    <bean id="avengersExpansionEdition1" class="com.poscodx.container.videosystem.BlankDisc">
+        <property name="title" value="Avengers Expansion Edition1"/>
+        <property name="studio" value="Marvel"/>
     </bean>
 
-    <!-- 10. 빈 설정: 프로퍼티 사용2 -->
+    <!-- 10. 빈설정: 프로퍼티 사용2 -->
     <bean
-            id="avengersExtensionEdition2"
+            id="avengersExpansionEdition2"
             class="com.poscodx.container.videosystem.BlankDisc"
-            p:title="Avengers Extension Edition2"
+            p:title="Avengers Expansion Edition2"
             p:studio="Marvel">
         <property name="actors">
             <list>
@@ -95,44 +94,44 @@
         </property>
     </bean>
 
-    <!-- 11. 빈 설정: 프로퍼티 사용3 -->
+    <!-- 11. 빈설정: 프로퍼티 사용3 -->
     <util:list id="actorList">
         <value>Robert Downey Jr.</value>
         <value>Chris Evans</value>
     </util:list>
     <bean
-            id="avengersExtensionEdition3"
+            id="avengersExpansionEdition3"
             class="com.poscodx.container.videosystem.BlankDisc"
-            p:title="Avengers Extension Edition3"
+            p:title="Avengers Expansion Edition3"
             p:studio="Marvel"
             p:actors-ref="actorList">
     </bean>
 
-    <!-- 12. 빈 주입: 생성자 주입1 -->
+    <!-- 12. 빈주입: 생성자 주입1 -->
     <bean id="dvdPlayer1" class="com.poscodx.container.videosystem.DVDPlayer">
         <constructor-arg ref="ironMan" />
     </bean>
 
-    <!-- 13. 빈 주입: 생성자 주입2: c-namespace의 argument name을 사용하는 방법, Spring 3.x 지원 -->
+    <!-- 13. 빈주입: 생성자 주입2: c-namespace의 argument name을 사용하는 방법, Spring 3.x 지원 -->
     <bean
             id="dvdPlayer2"
             class="com.poscodx.container.videosystem.DVDPlayer"
             c:dvd-ref="ironMan" />
 
-    <!-- 14. 빈 주입: 생성자 주입3: c-namespace의 argument index룰 사용하는 방법, Spring 3.x 지원 -->
+    <!-- 14. 빈주입: 생성자 주입3: c-namespace의 argument index을 사용하는 방법, Spring 3.x 지원 -->
     <bean
             id="dvdPlayer3"
             class="com.poscodx.container.videosystem.DVDPlayer"
             c:_0-ref="ironMan" />
 
-    <!-- 15. 빈 주입: 프로퍼티 주입1 -->
+    <!-- 15. 빈주입: 프로퍼티 주입1 -->
     <bean id="dvdPlayer4" class="com.poscodx.container.videosystem.DVDPlayer">
         <property name="dvd" ref="ironMan" />
     </bean>
 
-    <!-- 16. 빈 주입: 프로퍼티 주입2: p-namespace -->
+    <!-- 16. 빈주입: 프로퍼티 주입2: p-namespace -->
     <bean
             id="dvdPlayer5"
             class="com.poscodx.container.videosystem.DVDPlayer"
-            p:dvd-ref="ironMan" />
+            p:dvd-ref="ironMan"/>
 </beans>

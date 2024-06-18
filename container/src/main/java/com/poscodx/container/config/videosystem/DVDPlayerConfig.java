@@ -1,10 +1,11 @@
 package com.poscodx.container.config.videosystem;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 import com.poscodx.container.videosystem.Avengers;
 import com.poscodx.container.videosystem.DVDPlayer;
 import com.poscodx.container.videosystem.DigitalVideoDisc;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class DVDPlayerConfig {
@@ -13,17 +14,16 @@ public class DVDPlayerConfig {
         return new Avengers();
     }
 
-
     // 주입(Injection)하기 1
-    // Bean 생성 메서드를 직접 호출하는 방법
+    // Bean 생성 메소드를 직접 호출하는 방법
     // 생성자 주입
-    @Bean("dvdPlayer01") // () 생략하면 메서드 이름이 id가 된다.
-    public DVDPlayer dvdPlayer1() {
+    @Bean("dvdPlayer01")
+    public DVDPlayer dvdPlayer1() { // () 생략하면 메서드 이름이 id가 된다.
         return new DVDPlayer(avengers());
     }
 
     // 주입(Injection)하기 2
-    // Parameter 로 bean을 전달하는 방법
+    // Parameter로 bean을 전달하는 방법
     // 생성자 주입
     @Bean
     public DVDPlayer dvdPlayer2(DigitalVideoDisc dvd) {
@@ -31,7 +31,7 @@ public class DVDPlayerConfig {
     }
 
     // 주입(Injection)하기 3
-    // Parameter 로 bean을 전달하는 방법
+    // Parameter로 bean을 전달하는 방법
     // setter 주입
     @Bean("dvdPlayer03")
     public DVDPlayer dvdPlayer3(DigitalVideoDisc dvd) {
