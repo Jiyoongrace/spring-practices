@@ -14,7 +14,7 @@ com.poscodx.container.soundsystem
 	com.poscodx.container.config.videosystem
 		|--- DVDPlayerConfig.java
 		
-	com.poscodx.container.config.videosystem.mixing
+	com.poscodx.container.videosystem.mixing
 		|--- DVDConfig.java
 		|--- DVDPlayerConfig.java
 		|--- VideoSystemConfig.java
@@ -35,6 +35,6 @@ com.poscodx.container.soundsystem
 		|--- DVDPlayerJavaConfigTest.java
 		|--- DVDPlayerXmlConfigTest.java
 		
-	com.poscodx.container.config.videosystem.mixing
+	com.poscodx.container.videosystem.mixing
 		|--- DVDPlayerMixingConfigTest01.java
 		|--- DVDPlayerMixingConfigTest02.java
