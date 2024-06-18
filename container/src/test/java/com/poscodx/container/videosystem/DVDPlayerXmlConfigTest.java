@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations= {"classpath:com.poscodx.container.config.videosystem/applicationContext.xml"})
+@ContextConfiguration(locations= {"classpath:com/poscodx/containeer/config/videosystem/applicationContext.xml"})
 public class DVDPlayerXmlConfigTest {
     // @Autowired
     // 예외 발생
