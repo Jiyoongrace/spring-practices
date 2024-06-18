@@ -47,15 +47,15 @@ public class DVDPlayerXmlConfigTest {
     DVDPack dvdPack;
 
     @Autowired
-    @Qualifier("avengersExtensionEdition1")
+    @Qualifier("avengersExpansionEdition1")
     DigitalVideoDisc dvd8;
 
     @Autowired
-    @Qualifier("avengersExtensionEdition2")
+    @Qualifier("avengersExpansionEdition2")
     DigitalVideoDisc dvd9;
 
     @Autowired
-    @Qualifier("avengersExtensionEdition3")
+    @Qualifier("avengersExpansionEdition3")
     DigitalVideoDisc dvd10;
 
     @Autowired
