@@ -20,7 +20,7 @@ public class Ex01 {
 	@GetMapping("/02")
 	public String _02() {
 		// jstl view
-		return "views/ex01/02";
+		return "views/ex01/02"; // jsp (views 붙으면 jsp, 아니면 thymeleaf 로 가게 ViewResolver 설정 해둠)
 	}
 	
 	@GetMapping("/03")
